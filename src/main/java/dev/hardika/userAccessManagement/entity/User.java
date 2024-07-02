@@ -2,13 +2,14 @@ package dev.hardika.userAccessManagement.entity;
 
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.ManyToMany;
+
 import lombok.Getter;
 import lombok.Setter;
 
 import java.util.List;
 
-@Entity
+@Entity(name = "UserApp")
 @Getter
 @Setter
 public class User extends BaseModel{
@@ -16,6 +17,6 @@ public class User extends BaseModel{
     private String password;
     private String email;
 
-    @OneToMany
+    @ManyToMany
     private List<Role> roles;
 }

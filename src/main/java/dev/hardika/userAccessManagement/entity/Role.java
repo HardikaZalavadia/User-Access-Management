@@ -4,7 +4,7 @@ import jakarta.persistence.Entity;
 import lombok.Getter;
 import lombok.Setter;
 
-@Entity(name = "User_Role")
+@Entity(name = "User_Access_Role")
 @Getter
 @Setter
 public class Role extends BaseModel{
