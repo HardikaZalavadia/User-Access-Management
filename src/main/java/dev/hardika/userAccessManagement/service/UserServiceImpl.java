@@ -2,6 +2,7 @@ package dev.hardika.userAccessManagement.service;
 
 import dev.hardika.userAccessManagement.dto.UserResponseDto;
 import dev.hardika.userAccessManagement.entity.User;
+import dev.hardika.userAccessManagement.exception.UserNotFoundException;
 import dev.hardika.userAccessManagement.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,13 +26,18 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserResponseDto createUser(User user) {
-
-        UserResponseDto
+        User saveUser = userRepository.save(user);
+        UserResponseDto userResponseDto = UserResponseDto.converUserToUserResponseDto(saveUser);
+        return userResponseDto;
     }
 
     @Override
     public boolean deleteUser(UUID id) {
-        return false;
+        User user = userRepository.findById(id).orElseThrow(
+                () -> new UserNotFoundException("User is not present of this UserId :"+id));
+
+        userRepository.deleteById(id);
+        return true;
     }
 
     @Override
