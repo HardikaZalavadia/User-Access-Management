@@ -12,8 +12,6 @@
   },
   "private": true,
 
-
-
   "info": {
     "name": "User Access Management API",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -31,7 +29,7 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n    \"username\": \"user1\",\n    \"password\": \"user1\",\n    \"roles\": [\n        {\n            \"id\": 2,\n            \"name\": \"ROLE_USER\"\n        }\n    ]\n}"
+          "raw": "{\n    \"username\": \"user1\",\n  \"password\": \"user1\",\n  \"roles\": [\n  {\n  \"id\": 2,\n \"name\": \"ROLE_USER\"\n  }\n ]\n}"
         },
         "url": {
           "raw": "http://localhost:8080/admin/users",
@@ -46,7 +44,7 @@
           ]
         }
       },
-      "response": []
+      "response": ["name","email", "role"]
     },
     {
       "name": "Delete User",
@@ -66,7 +64,7 @@
           ]
         }
       },
-      "response": []
+      "response": ["true/false"]
     },
     {
       "name": "List Users",
