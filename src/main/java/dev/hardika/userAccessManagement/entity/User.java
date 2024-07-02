@@ -6,6 +6,8 @@ import jakarta.persistence.OneToMany;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 @Entity
 @Getter
 @Setter
@@ -15,5 +17,5 @@ public class User extends BaseModel{
     private String email;
 
     @OneToMany
-    private Role role;
+    private List<Role> roles;
 }
